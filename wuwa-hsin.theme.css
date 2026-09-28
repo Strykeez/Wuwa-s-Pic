@@ -1,0 +1,171 @@
+/**
+ * @name Wuthering Waves - Hsin (Lune)
+ * @author Toi
+ * @version 1.0.0
+ * @description Thème sombre nuit / lune dorée / rouge carmin, inspiré de l'artwork de Hsin
+ */
+
+:root {
+  --wuwa-image: url("https://raw.githubusercontent.com/Strykeez/Wuwa-s-Pic/main/fond2.jpg?v=2");
+
+  --wuwa-night: #0e0b0c;
+  --wuwa-panel: #15100f;
+  --wuwa-panel-2: #1b1413;
+  --wuwa-deep: #0a0808;
+  --wuwa-gold: #e6b53c;
+  --wuwa-gold-soft: #7a5f22;
+  --wuwa-moon: #f4da94;
+  --wuwa-red: #b3343f;
+  --wuwa-text: #f2e8d5;
+  --wuwa-muted: #b4a58b;
+}
+
+/* ====== VARIABLES DISCORD (anciennes + nouvelles) ====== */
+.theme-light,
+.theme-dark {
+  --brand-experiment: var(--wuwa-gold);
+  --brand-500: var(--wuwa-gold);
+  --brand-560: #cf9f2e;
+  --brand-600: #b88a24;
+  --brand-experiment-05a: rgba(230, 181, 60, 0.08);
+  --brand-experiment-15a: rgba(230, 181, 60, 0.18);
+
+  --background-primary: rgba(14, 11, 12, 0.72);
+  --background-secondary: rgba(21, 16, 15, 0.82);
+  --background-secondary-alt: rgba(18, 14, 13, 0.86);
+  --background-tertiary: rgba(10, 8, 8, 0.90);
+  --background-floating: rgba(21, 16, 15, 0.97);
+  --background-accent: rgba(230, 181, 60, 0.14);
+  --background-modifier-hover: rgba(230, 181, 60, 0.10);
+  --background-modifier-selected: rgba(230, 181, 60, 0.18);
+  --background-modifier-active: rgba(230, 181, 60, 0.24);
+  --channeltextarea-background: rgba(27, 20, 19, 0.85);
+
+  --background-base-low: rgba(21, 16, 15, 0.82);
+  --background-base-lower: rgba(14, 11, 12, 0.88);
+  --background-base-lowest: rgba(10, 8, 8, 0.92);
+  --background-surface-high: rgba(27, 20, 19, 0.88);
+  --background-surface-higher: rgba(33, 25, 23, 0.92);
+  --background-surface-highest: rgba(40, 30, 27, 0.96);
+  --chat-background-default: rgba(14, 11, 12, 0.72);
+  --bg-base-primary: rgba(14, 11, 12, 0.72);
+  --bg-base-secondary: rgba(21, 16, 15, 0.82);
+  --bg-base-tertiary: rgba(10, 8, 8, 0.90);
+
+  --text-normal: var(--wuwa-text);
+  --text-default: var(--wuwa-text);
+  --text-strong: #fff6e2;
+  --text-muted: var(--wuwa-muted);
+  --header-primary: #fff6e2;
+  --header-secondary: var(--wuwa-muted);
+  --interactive-normal: var(--wuwa-muted);
+  --interactive-hover: var(--wuwa-text);
+  --interactive-active: var(--wuwa-gold);
+  --channels-default: var(--wuwa-muted);
+  --text-link: var(--wuwa-moon);
+
+  --status-danger: var(--wuwa-red);
+  --mention-foreground: var(--wuwa-moon);
+  --mention-background: rgba(230, 181, 60, 0.20);
+}
+
+/* ====== FOND ====== */
+body,
+#app-mount {
+  background: var(--wuwa-night) !important;
+}
+
+[class*="bg_"] {
+  background: transparent !important;
+}
+
+/* Artwork AU-DESSUS de l'interface en mode "screen" : le noir ne change rien,
+   seules les zones claires (lune, feuilles, robe) ressortent.
+   Règle l'opacité : 0.3 = discret, 0.6 = marqué */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: var(--wuwa-image) center / cover no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.45;
+  pointer-events: none;
+}
+
+/* ====== ZONES PRINCIPALES ====== */
+[class*="sidebar_"],
+[class*="chatContent_"],
+[class*="membersWrap_"] {
+  backdrop-filter: blur(8px);
+}
+
+[class*="sidebar_"] {
+  border-right: 1px solid var(--wuwa-gold-soft);
+}
+
+[class*="title_"][class*="bar"],
+[class*="chat_"] > [class*="subtitleContainer_"] {
+  border-bottom: 1px solid var(--wuwa-gold-soft);
+}
+
+/* ====== DÉTAILS OR / LUEUR ====== */
+[class*="channel_"]:hover,
+[class*="modeSelected_"] {
+  box-shadow: inset 3px 0 0 var(--wuwa-gold);
+  border-radius: 6px;
+}
+
+[class*="channelTextArea_"] {
+  border: 1px solid var(--wuwa-gold-soft);
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(230, 181, 60, 0.12);
+}
+[class*="channelTextArea_"]:focus-within {
+  border-color: var(--wuwa-gold);
+  box-shadow: 0 0 0 1px var(--wuwa-gold), 0 4px 22px rgba(230, 181, 60, 0.28);
+}
+
+[class*="lookFilled_"][class*="colorBrand_"] {
+  background: var(--wuwa-gold) !important;
+  color: #1a1206 !important;
+}
+[class*="lookFilled_"][class*="colorBrand_"]:hover {
+  background: #cf9f2e !important;
+}
+[class*="lookFilled_"][class*="colorRed_"] {
+  background: var(--wuwa-red) !important;
+}
+
+[class*="message_"]:hover {
+  background: rgba(230, 181, 60, 0.05);
+}
+
+/* Barres de défilement */
+::-webkit-scrollbar-thumb {
+  background: var(--wuwa-gold-soft) !important;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wuwa-gold) !important;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Menus, popups, fenêtres : quasi opaques pour rester lisibles */
+[class*="layer_"] [class*="menu_"],
+[class*="popout_"],
+[class*="modal_"],
+[class*="standardSidebarView_"] {
+  background: rgba(21, 16, 15, 0.97) !important;
+  border: 1px solid var(--wuwa-gold-soft);
+  border-radius: 10px;
+}
+
+::selection {
+  background: rgba(230, 181, 60, 0.35);
+}
