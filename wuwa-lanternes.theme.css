@@ -1,0 +1,178 @@
+/**
+ * @name Wuthering Waves - Hsin (Lanternes)
+ * @author Toi
+ * @version 1.0.0
+ * @description Thème sombre nuit verte / lanternes dorées / lune blanche, inspiré de l'artwork officiel de Hsin
+ */
+
+:root {
+  --wuwa-image: url("https://raw.githubusercontent.com/Strykeez/Wuwa-s-Pic/main/fond3.jpg?v=1");
+
+  --wuwa-night: #0a0e0b;
+  --wuwa-panel: #101611;
+  --wuwa-panel-2: #161d17;
+  --wuwa-deep: #070a08;
+  --wuwa-gold: #f0b840;
+  --wuwa-gold-soft: #6b5a26;
+  --wuwa-moon: #f1efe0;
+  --wuwa-red: #c2452f;
+  --wuwa-text: #efe9d6;
+  --wuwa-muted: #a9b0a0;
+}
+
+/* ====== VARIABLES DISCORD (anciennes + nouvelles) ====== */
+.theme-light,
+.theme-dark {
+  --brand-experiment: var(--wuwa-gold);
+  --brand-500: var(--wuwa-gold);
+  --brand-560: #d9a533;
+  --brand-600: #c08f27;
+  --brand-experiment-05a: rgba(240, 184, 64, 0.08);
+  --brand-experiment-15a: rgba(240, 184, 64, 0.18);
+
+  --background-primary: rgba(10, 14, 11, 0.72);
+  --background-secondary: rgba(16, 22, 17, 0.82);
+  --background-secondary-alt: rgba(13, 18, 14, 0.86);
+  --background-tertiary: rgba(7, 10, 8, 0.90);
+  --background-floating: rgba(16, 22, 17, 0.97);
+  --background-accent: rgba(240, 184, 64, 0.14);
+  --background-modifier-hover: rgba(240, 184, 64, 0.10);
+  --background-modifier-selected: rgba(240, 184, 64, 0.18);
+  --background-modifier-active: rgba(240, 184, 64, 0.24);
+  --channeltextarea-background: rgba(22, 29, 23, 0.85);
+
+  --background-base-low: rgba(16, 22, 17, 0.82);
+  --background-base-lower: rgba(10, 14, 11, 0.88);
+  --background-base-lowest: rgba(7, 10, 8, 0.92);
+  --background-surface-high: rgba(22, 29, 23, 0.88);
+  --background-surface-higher: rgba(28, 36, 29, 0.92);
+  --background-surface-highest: rgba(34, 43, 35, 0.96);
+  --chat-background-default: rgba(10, 14, 11, 0.72);
+  --bg-base-primary: rgba(10, 14, 11, 0.72);
+  --bg-base-secondary: rgba(16, 22, 17, 0.82);
+  --bg-base-tertiary: rgba(7, 10, 8, 0.90);
+
+  --text-normal: var(--wuwa-text);
+  --text-default: var(--wuwa-text);
+  --text-strong: #fbf6e6;
+  --text-muted: var(--wuwa-muted);
+  --header-primary: #fbf6e6;
+  --header-secondary: var(--wuwa-muted);
+  --interactive-normal: var(--wuwa-muted);
+  --interactive-hover: var(--wuwa-text);
+  --interactive-active: var(--wuwa-gold);
+  --channels-default: var(--wuwa-muted);
+  --text-link: var(--wuwa-moon);
+
+  --status-danger: var(--wuwa-red);
+  --mention-foreground: var(--wuwa-moon);
+  --mention-background: rgba(240, 184, 64, 0.20);
+}
+
+/* ====== FOND ====== */
+body,
+#app-mount {
+  background: var(--wuwa-night) !important;
+}
+
+[class*="bg_"] {
+  background: transparent !important;
+}
+
+/* Artwork AU-DESSUS de l'interface en mode "screen" : le noir ne change rien,
+   seules les zones claires (lune, feuilles, robe) ressortent.
+   Règle l'opacité : 0.3 = discret, 0.6 = marqué */
+body::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 2147483647;
+  background: var(--wuwa-image) center / cover no-repeat;
+  mix-blend-mode: screen;
+  opacity: 0.38;
+  pointer-events: none;
+  animation: wuwa-respire 7s ease-in-out infinite;
+}
+
+/* Effet "respiration" : la lune brille doucement (0.26 <-> 0.48 sur 7 s) */
+@keyframes wuwa-respire {
+  0%, 100% { opacity: 0.26; }
+  50%      { opacity: 0.48; }
+}
+
+/* ====== ZONES PRINCIPALES ====== */
+[class*="sidebar_"],
+[class*="chatContent_"],
+[class*="membersWrap_"] {
+  backdrop-filter: blur(8px);
+}
+
+[class*="sidebar_"] {
+  border-right: 1px solid var(--wuwa-gold-soft);
+}
+
+[class*="title_"][class*="bar"],
+[class*="chat_"] > [class*="subtitleContainer_"] {
+  border-bottom: 1px solid var(--wuwa-gold-soft);
+}
+
+/* ====== DÉTAILS OR / LUEUR ====== */
+[class*="channel_"]:hover,
+[class*="modeSelected_"] {
+  box-shadow: inset 3px 0 0 var(--wuwa-gold);
+  border-radius: 6px;
+}
+
+[class*="channelTextArea_"] {
+  border: 1px solid var(--wuwa-gold-soft);
+  border-radius: 10px;
+  box-shadow: 0 2px 16px rgba(240, 184, 64, 0.12);
+}
+[class*="channelTextArea_"]:focus-within {
+  border-color: var(--wuwa-gold);
+  box-shadow: 0 0 0 1px var(--wuwa-gold), 0 4px 22px rgba(240, 184, 64, 0.28);
+}
+
+[class*="lookFilled_"][class*="colorBrand_"] {
+  background: var(--wuwa-gold) !important;
+  color: #171106 !important;
+}
+[class*="lookFilled_"][class*="colorBrand_"]:hover {
+  background: #d9a533 !important;
+}
+[class*="lookFilled_"][class*="colorRed_"] {
+  background: var(--wuwa-red) !important;
+}
+
+[class*="message_"]:hover {
+  background: rgba(240, 184, 64, 0.05);
+}
+
+/* Barres de défilement */
+::-webkit-scrollbar-thumb {
+  background: var(--wuwa-gold-soft) !important;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+  border-radius: 8px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--wuwa-gold) !important;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-track {
+  background: transparent !important;
+}
+
+/* Menus, popups, fenêtres : quasi opaques pour rester lisibles */
+[class*="layer_"] [class*="menu_"],
+[class*="popout_"],
+[class*="modal_"],
+[class*="standardSidebarView_"] {
+  background: rgba(16, 22, 17, 0.97) !important;
+  border: 1px solid var(--wuwa-gold-soft);
+  border-radius: 10px;
+}
+
+::selection {
+  background: rgba(240, 184, 64, 0.35);
+}
