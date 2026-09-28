@@ -29,7 +29,7 @@
   --brand-experiment-05a: rgba(201, 162, 77, 0.08);
   --brand-experiment-15a: rgba(201, 162, 77, 0.18);
 
-  --background-primary: rgba(251, 249, 242, 0.72);
+  --background-primary: rgba(251, 249, 242, 0.55);
   --background-secondary: rgba(244, 240, 228, 0.82);
   --background-secondary-alt: rgba(240, 235, 220, 0.88);
   --background-tertiary: rgba(236, 230, 212, 0.90);
@@ -47,8 +47,8 @@
   --background-surface-high: rgba(251, 249, 242, 0.85);
   --background-surface-higher: rgba(251, 249, 242, 0.92);
   --background-surface-highest: rgba(255, 255, 255, 0.96);
-  --chat-background-default: rgba(251, 249, 242, 0.72);
-  --bg-base-primary: rgba(251, 249, 242, 0.72);
+  --chat-background-default: rgba(251, 249, 242, 0.55);
+  --bg-base-primary: rgba(251, 249, 242, 0.55);
   --bg-base-secondary: rgba(244, 240, 228, 0.82);
   --bg-base-tertiary: rgba(236, 230, 212, 0.90);
 
@@ -71,9 +71,13 @@
 
 /* ====== FOND ====== */
 body,
-#app-mount,
-[class*="bg_"] {
+#app-mount {
   background: var(--wuwa-cream) !important;
+}
+
+/* conteneurs Discord : transparents pour laisser voir l'image */
+[class*="bg_"] {
+  background: transparent !important;
 }
 
 #app-mount::before {
@@ -82,7 +86,7 @@ body,
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(rgba(251, 249, 242, 0.35), rgba(251, 249, 242, 0.35)),
+    linear-gradient(rgba(251, 249, 242, 0.10), rgba(251, 249, 242, 0.10)),
     var(--wuwa-image) center / cover no-repeat;
   pointer-events: none;
 }
@@ -180,4 +184,23 @@ body,
 /* Sélection de texte */
 ::selection {
   background: rgba(201, 162, 77, 0.35);
+}
+
+/* ====== PANNEAU DE PROFIL (DM, colonne de droite) ====== */
+[class*="profilePanel_"] {
+  color: var(--wuwa-ink) !important;
+}
+[class*="profilePanel_"] [class*="userProfileInner"] {
+  background: rgba(251, 249, 242, 0.92) !important;
+}
+[class*="profilePanel_"] :is(h1, h2, h3, h4, span, div, a):not([class*="banner"]):not([class*="avatar"]) {
+  color: inherit;
+  text-shadow: none;
+}
+
+/* ====== LISTE DES SERVEURS (textes "Read All", "ONLINE") ====== */
+[class*="guilds_"] {
+  --text-muted: var(--wuwa-ink-soft);
+  --text-default: var(--wuwa-ink);
+  --header-secondary: var(--wuwa-ink-soft);
 }
