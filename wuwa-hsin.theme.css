@@ -94,10 +94,7 @@ body::after {
   animation: wuwa-respire 6s ease-in-out infinite;
 }
 
-/* Effet "respiration" : la lune brille doucement (0.28 <-> 0.62 sur 6 s) */
-@keyframes wuwa-respire {
-  0%, 100% { opacity: 0.28; }
-  50%      { opacity: 0.62; }
+/
 }
 
 /* ====== ZONES PRINCIPALES ====== */
