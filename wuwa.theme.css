@@ -80,20 +80,17 @@ body,
   background: transparent !important;
 }
 
-#app-mount::before {
+/* Artwork en filigrane AU-DESSUS de l'interface (multiply : le blanc ne change rien).
+   Règle l'opacité pour plus ou moins d'image : 0.3 = discret, 0.7 = marqué */
+body::after {
   content: "";
   position: fixed;
   inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(rgba(251, 249, 242, 0.10), rgba(251, 249, 242, 0.10)),
-    var(--wuwa-image) center / cover no-repeat;
+  z-index: 2147483647;
+  background: var(--wuwa-image) center / cover no-repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.5;
   pointer-events: none;
-}
-
-#app-mount > * {
-  position: relative;
-  z-index: 1;
 }
 
 /* ====== ZONES PRINCIPALES ====== */
@@ -203,4 +200,15 @@ body,
   --text-muted: var(--wuwa-ink-soft);
   --text-default: var(--wuwa-ink);
   --header-secondary: var(--wuwa-ink-soft);
+}
+
+/* cartes sombres du profil (jeu / activité) : texte clair */
+[class*="profilePanel_"] :is([class*="widget"], [class*="Widget"], [class*="gameActivity"], [class*="activityCard"], [class*="gameProfile"]) * {
+  color: #f4f0e4 !important;
+}
+
+/* bouton "View Full Profile" */
+[class*="profilePanel_"] [class*="lookFilled_"][class*="fullWidth"] {
+  background: var(--wuwa-gold) !important;
+  color: #fff !important;
 }
