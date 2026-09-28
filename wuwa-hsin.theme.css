@@ -91,18 +91,13 @@ body::after {
   mix-blend-mode: screen;
   opacity: 0.45;
   pointer-events: none;
-  animation: wuwa-respire 8s ease-in-out infinite;
+  animation: wuwa-respire 6s ease-in-out infinite;
 }
 
-/* Effet "respiration" : la lune brille doucement (0.38 <-> 0.52 sur 8 s) */
+/* Effet "respiration" : la lune brille doucement (0.28 <-> 0.62 sur 6 s) */
 @keyframes wuwa-respire {
-  0%, 100% { opacity: 0.38; }
-  50%      { opacity: 0.52; }
-}
-
-/* Respecte le réglage Windows "réduire les animations" */
-@media (prefers-reduced-motion: reduce) {
-  body::after { animation: none; }
+  0%, 100% { opacity: 0.28; }
+  50%      { opacity: 0.62; }
 }
 
 /* ====== ZONES PRINCIPALES ====== */
