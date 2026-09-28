@@ -8,7 +8,7 @@
 /* ====== IMAGE DE FOND ======
    Remplace l'URL par le lien "raw" de fond.jpg une fois hébergée (GitHub, par ex.) */
 :root {
-  --wuwa-image: url("https://raw.githubusercontent.com/Strykeez/Wuwa-s-Pic/main/fond.jpg");
+  --wuwa-image: url("https://raw.githubusercontent.com/Strykeez/Wuwa-s-Pic/main/fond.jpg?v=2");
 
   --wuwa-cream: #fbf9f2;
   --wuwa-ivory: #f4f0e4;
@@ -211,4 +211,18 @@ body::after {
 [class*="profilePanel_"] [class*="lookFilled_"][class*="fullWidth"] {
   background: var(--wuwa-gold) !important;
   color: #fff !important;
+}
+
+/* ====== CARTES DES RÉGLAGES VENCORD (texte lisible) ====== */
+[class*="vc-settings-card"],
+[class*="vc-addon-card"],
+[class*="vc-plugins-info-card"] {
+  background: rgba(244, 240, 228, 0.92) !important;
+  border: 1px solid var(--wuwa-gold-soft);
+  color: var(--wuwa-ink) !important;
+}
+[class*="vc-settings-card"] :not(a),
+[class*="vc-addon-card"] :not(a),
+[class*="vc-plugins-info-card"] :not(a) {
+  color: inherit;
 }
