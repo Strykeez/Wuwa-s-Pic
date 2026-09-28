@@ -8,7 +8,7 @@
 /* ====== IMAGE DE FOND ======
    Remplace l'URL par le lien "raw" de fond.jpg une fois hébergée (GitHub, par ex.) */
 :root {
-  --wuwa-image: url("https://raw.githubusercontent.com/TON-PSEUDO/TON-DEPOT/main/fond.jpg");
+  --wuwa-image: url("https://raw.githubusercontent.com/Strykeez/Wuwa-s-Pic/main/fond.jpg");
 
   --wuwa-cream: #fbf9f2;
   --wuwa-ivory: #f4f0e4;
